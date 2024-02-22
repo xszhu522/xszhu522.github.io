@@ -1,21 +1,22 @@
 import { hopeTheme } from "vuepress-theme-hope";
 import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
-import { MR_HOPE_AVATAR } from "./logo.js";
 
 export default hopeTheme({
-  hostname: "https://mister-hope.github.io",
+  hostname: "https://xszhu522.github.io",
+
+  favicon: "/favicon.ico",
 
   author: {
-    name: "Mr.Hope",
-    url: "https://mister-hope.com",
+    name: "xszhu522",
+    url: "https://xszhu522.github.io",
   },
 
-  iconAssets: "fontawesome-with-brands",
+  iconAssets: "https://code.iconify.design/iconify-icon/2.0.0/iconify-icon.min.js",
 
-  logo: "https://theme-hope-assets.vuejs.press/logo.svg",
+  logo: "/avatar.jpg",
 
-  repo: "vuepress-theme-hope/vuepress-theme-hope",
+  repo: "xszhu522/xszhu522.github.io",
 
   docsDir: "src",
 
@@ -26,46 +27,19 @@ export default hopeTheme({
   sidebar,
 
   // 页脚
-  footer: "默认页脚",
+  footer: "",
   displayFooter: true,
 
   // 博客相关
   blog: {
-    description: "一个前端开发者",
+    roundAvatar: true,
+    description: "A code monkey",
     intro: "/intro.html",
     medias: {
-      Baidu: "https://example.com",
-      BiliBili: "https://example.com",
-      Bitbucket: "https://example.com",
-      Dingding: "https://example.com",
-      Discord: "https://example.com",
-      Dribbble: "https://example.com",
-      Email: "mailto:info@example.com",
-      Evernote: "https://example.com",
-      Facebook: "https://example.com",
-      Flipboard: "https://example.com",
-      Gitee: "https://example.com",
-      GitHub: "https://example.com",
-      Gitlab: "https://example.com",
-      Gmail: "mailto:info@example.com",
-      Instagram: "https://example.com",
-      Lark: "https://example.com",
-      Lines: "https://example.com",
-      Linkedin: "https://example.com",
-      Pinterest: "https://example.com",
-      Pocket: "https://example.com",
-      QQ: "https://example.com",
-      Qzone: "https://example.com",
-      Reddit: "https://example.com",
-      Rss: "https://example.com",
-      Steam: "https://example.com",
-      Twitter: "https://example.com",
-      Wechat: "https://example.com",
-      Weibo: "https://example.com",
-      Whatsapp: "https://example.com",
-      Youtube: "https://example.com",
-      Zhihu: "https://example.com",
-      MrHope: ["https://mister-hope.com", MR_HOPE_AVATAR],
+      GitHub: "https://github.com/xszhu522",
+      Gitee: "https://gitee.com/xszhu522",
+      Email: "mailto:919317559@qq.com",
+      QQ: "tencent://message/?uin=919317559",
     },
   },
 
@@ -81,6 +55,8 @@ export default hopeTheme({
     editLink: "在 GitHub 上编辑此页",
   },
 
+  fullscreen: true,
+
   // 如果想要实时查看任何改变，启用它。注: 这对更新性能有很大负面影响
   // hotReload: true,
 
@@ -88,12 +64,30 @@ export default hopeTheme({
   plugins: {
     blog: true,
 
-    // 在启用之前需要安装 @waline/client
-    // 警告: 这是一个仅供演示的测试服务器，在生产环境中请自行部署并使用自己的服务器！
-    // comment: {
-    //   provider: "Waline",
-    //   serverURL: "https://waline-comment.vuejs.press",
-    // },
+    searchPro: {
+      // 索引全部内容
+      indexContent: true,
+      // 为分类和标签添加索引
+      customFields: [
+        {
+          getter: (page) => page.frontmatter.category,
+          formatter: "分类：$content",
+        },
+        {
+          getter: (page) => page.frontmatter.tag,
+          formatter: "标签：$content",
+        },
+      ],
+    },
+
+    // You should generate and use your own comment service
+    comment: {
+      provider: "Giscus",
+      repo: "xszhu522/xszhu522.github.io",
+      repoId: "R_kgDOK0P5gA",
+      category: "Comment",
+      categoryId: "DIC_kwDOK0P5gM4CdXhP",
+    },
 
     components: {
       components: ["Badge", "VPCard"],
@@ -147,7 +141,7 @@ export default hopeTheme({
       // katex: true,
 
       // 在启用之前安装 mathjax-full
-      // mathjax: true,
+      mathjax: true,
 
       // 在启用之前安装 mermaid
       // mermaid: true,
@@ -225,4 +219,6 @@ export default hopeTheme({
     //   },
     // },
   },
+}, {
+  custom: true
 });
