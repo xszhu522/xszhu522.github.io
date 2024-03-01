@@ -90,7 +90,25 @@ export default hopeTheme({
     },
 
     components: {
-      components: ["Badge", "VPCard"],
+      components: [
+        "ArtPlayer",
+        "AudioPlayer",
+        "Badge",
+        "BiliBili",
+        "CodePen",
+        "FontIcon",
+        "PDF",
+        "Replit",
+        "Share",
+        "StackBlitz",
+        "SiteInfo",
+        "VPBanner",
+        "VPCard",
+        "VidStack",
+        "VideoPlayer",
+        "XiGua",
+        "YouTube",
+      ],
     },
 
     // 此处开启了很多功能用于演示，你应仅保留用到的功能。
